@@ -5,8 +5,8 @@ import 'package:widget_tests/pedido/relacionados/item_pedido/domain/models/item_
 
 class Pedido {
   final int idPedido;
-  final Cliente cliente;
   final List<ItemPedido> itens;
+  Cliente cliente;
   Pedido({
     required this.idPedido,
     required this.cliente,

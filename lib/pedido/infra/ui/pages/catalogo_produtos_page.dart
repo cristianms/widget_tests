@@ -7,14 +7,14 @@ import 'package:widget_tests/pedido/infra/ui/widgets/produto_tile.dart';
 import 'package:widget_tests/pedido/relacionados/item_pedido/domain/models/item_pedido.dart';
 import 'package:widget_tests/produto/domain/repositories/i_produto_repository.dart';
 
-class CatalogoProdutos extends StatefulWidget {
-  const CatalogoProdutos({super.key});
+class CatalogoProdutosPage extends StatefulWidget {
+  const CatalogoProdutosPage({super.key});
 
   @override
-  State<CatalogoProdutos> createState() => _CatalogoProdutosState();
+  State<CatalogoProdutosPage> createState() => _CatalogoProdutosPageState();
 }
 
-class _CatalogoProdutosState extends State<CatalogoProdutos> {
+class _CatalogoProdutosPageState extends State<CatalogoProdutosPage> {
   List<ItemPedido> listaItensCarrinho = [];
 
   @override
@@ -34,7 +34,7 @@ class _CatalogoProdutosState extends State<CatalogoProdutos> {
       body: ListView(
         children: listaProdutosCatalogo
             .map((produto) => ProdutoTile(
-                  key: Key(produto.idProduto.toString()),
+                  key: Key('tile-prod-id-${produto.idProduto.toString()}'),
                   produto: produto,
                   listaItensCarrinho: listaItensCarrinho,
                 ))

@@ -9,7 +9,7 @@ import 'package:widget_tests/main/infra/ui/pages/page_2.dart';
 import 'package:widget_tests/main/infra/ui/widgets/botao.dart';
 import 'package:widget_tests/pedido/domain/models/pedido.dart';
 import 'package:widget_tests/pedido/domain/repositories/i_pedido_repository.dart';
-import 'package:widget_tests/pedido/infra/ui/pages/capa_pedido.dart';
+import 'package:widget_tests/pedido/infra/ui/pages/capa_pedido_page.dart';
 import 'package:widget_tests/pedido/infra/ui/providers/pedido_provider.dart';
 
 /// Tela inicial do app
@@ -74,20 +74,23 @@ class _HomePageState extends State<HomePage> {
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {
-          // Inicializa um pedido
-          pedidoProvider.setPedido(Pedido(
-            idPedido: Modular.get<IPedidoRepository>().getAllPedidos().length + 1,
-            cliente: Modular.get<IClienteRepository>().getAllClientes().first,
-            itens: [],
-          ));
-
-          utilsFacade.push(context, const CapaPedido());
-        },
-      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        key: const Key('home-botao-add-pedido'),
+        child: const Icon(Icons.add),
+        onPressed: () => iniciaPedido(),
+      ),
     );
+  }
+
+  void iniciaPedido() {
+    // Inicializa um pedido
+    pedidoProvider.setPedido(Pedido(
+      idPedido: Modular.get<IPedidoRepository>().getAllPedidos().length + 1,
+      cliente: Modular.get<IClienteRepository>().getAllClientes().first,
+      itens: [],
+    ));
+
+    utilsFacade.push(context, const CapaPedidoPage());
   }
 }

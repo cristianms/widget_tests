@@ -43,7 +43,11 @@ class _ProdutoTileState extends State<ProdutoTile> {
             child: Column(
               children: [
                 const Text('Qtd'),
-                Text('$qtd', style: const TextStyle(fontSize: 18)),
+                Text(
+                  '$qtd',
+                  key: Key('tile-prod-id-${widget.produto.idProduto.toString()}-qtd'),
+                  style: const TextStyle(fontSize: 18),
+                ),
               ],
             ),
           ),
@@ -71,6 +75,8 @@ class _ProdutoTileState extends State<ProdutoTile> {
                 Flexible(
                   flex: 1,
                   child: IconButton(
+                    key: Key('tile-prod-${widget.produto.idProduto}-add'),
+                    icon: const Icon(Icons.add),
                     onPressed: () {
                       setState(() {
                         qtd++;
@@ -80,7 +86,6 @@ class _ProdutoTileState extends State<ProdutoTile> {
                         }
                       });
                     },
-                    icon: const Icon(Icons.add),
                   ),
                 ),
               ],
