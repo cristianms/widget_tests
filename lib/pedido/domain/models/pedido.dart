@@ -57,4 +57,8 @@ class Pedido {
 
   @override
   int get hashCode => idPedido.hashCode ^ cliente.hashCode ^ itens.hashCode;
+
+  void addItemPedido(ItemPedido itemPedido) {
+    itens.add(itemPedido);
+  }
 }

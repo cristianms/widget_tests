@@ -3,15 +3,15 @@ import 'dart:convert';
 import 'package:widget_tests/produto/domain/models/produto.dart';
 
 class ItemPedido {
-  final int idPedido;
-  final int sequencia;
   final Produto produto;
-  final int quantidade;
+  int quantidade;
+  final int? idPedido;
+  final int? sequencia;
   ItemPedido({
-    required this.idPedido,
-    required this.sequencia,
     required this.produto,
     required this.quantidade,
+    this.idPedido,
+    this.sequencia,
   });
 
   ItemPedido copyWith({

@@ -9,4 +9,9 @@ class UtilsService implements UtilsFacade {
       MaterialPageRoute(builder: (_) => paginaDestino),
     );
   }
+
+  @override
+  void pop<T extends Object?>(BuildContext context, [T? result]) {
+    Navigator.pop(context);
+  }
 }
