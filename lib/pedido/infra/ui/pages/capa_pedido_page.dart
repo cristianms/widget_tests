@@ -18,7 +18,7 @@ class CapaPedidoPage extends StatefulWidget {
 }
 
 class _CapaPedidoPageState extends State<CapaPedidoPage> {
-  late List<Cliente> listaClientes = [];
+  late List<Cliente> listaClientes;
   late PedidoProvider pedidoProvider;
 
   final pedidoRepository = Modular.get<IPedidoRepository>();
@@ -48,6 +48,17 @@ class _CapaPedidoPageState extends State<CapaPedidoPage> {
             const Padding(padding: EdgeInsets.only(top: 8.0), child: Text('Itens do pedido', style: TextStyle(fontSize: 20))),
             // Lista itens do pedido
             ListaItensPedido(pedidoProvider: pedidoProvider),
+            // Resumo
+            const Padding(padding: EdgeInsets.only(top: 8.0), child: Text('Resumo', style: TextStyle(fontSize: 20))),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Text('Qtd de itens: ${pedidoProvider.pedido!.itens.length}'),
+                  Text('Valor total do pedido: R\$ ${pedidoProvider.pedido!.valorTotalPedido()}'),
+                ],
+              ),
+            ),
           ],
         ),
       ),

@@ -26,6 +26,7 @@ class _CatalogoProdutosPageState extends State<CatalogoProdutosPage> {
         title: const Text('Catálogo de produtos'),
         actions: [
           IconButton(
+            key: const Key('salvar-itens-selecionados'),
             icon: const Icon(Icons.add_shopping_cart),
             onPressed: () => salvarItensCarrinhoNoPedido(),
           ),

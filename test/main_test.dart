@@ -96,26 +96,31 @@ void main() {
       // Clica em no botão de iniciar pedido (key 'home-botao-add-pedido')
       await tester.tap(find.byKey(const Key('home-botao-add-pedido')));
       // Aguarda carregamento do push para a CapaPedidoPage
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
       //
       //
       // Constata que está na CapaPedidoPage
       expect(find.text('Pedido'), findsOneWidget);
       expect(find.text('Cliente'), findsOneWidget);
       expect(find.text('Itens do pedido'), findsOneWidget);
+      expect(find.text('Nenhum item adicionado ao pedido'), findsOneWidget);
+      expect(find.text('Resumo'), findsOneWidget);
+      expect(find.text('Qtd de itens: 0'), findsOneWidget);
+      expect(find.text('Valor total do pedido: R\$ 0'), findsOneWidget);
       expect(find.byType(ListaItensPedido), findsOneWidget);
       expect(find.byType(ListTile), findsNothing);
       expect(find.byKey(const Key('add-item-pedido')), findsOneWidget);
       // Clica em no botão de adicionar itens
       await tester.tap(find.byKey(const Key('add-item-pedido')));
       // Aguarda carregamento do push para a ListaItensPedidoPage
-      await tester.pumpAndSettle(const Duration(seconds: 1));
+      await tester.pumpAndSettle();
       //
       //
       // Constata que está na CatalogoProdutosPage
       expect(find.text('Catálogo de produtos'), findsOneWidget);
       expect(find.byType(ListTile), findsWidgets);
       expect(find.byType(ProdutoTile), findsWidgets);
+      expect(find.byKey(const Key('salvar-itens-selecionados')), findsOneWidget);
       var qtdProd1 = find.byKey(const Key('tile-prod-id-1-qtd')).evaluate().first.widget as Text;
       expect(qtdProd1.data, equals("0"));
       var qtdProd2 = find.byKey(const Key('tile-prod-id-2-qtd')).evaluate().first.widget as Text;
@@ -128,11 +133,27 @@ void main() {
       // Adiciona qtd 2 do produto 1
       await tester.tap(find.byKey(const Key('tile-prod-1-add')));
       await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('tile-prod-1-add')));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('tile-prod-1-dcc')));
+      await tester.pumpAndSettle();
       qtdProd1 = find.byKey(const Key('tile-prod-id-1-qtd')).evaluate().first.widget as Text;
       expect(qtdProd1.data, equals("2"));
       // Verifica que o produto 2 continua igual
       qtdProd2 = find.byKey(const Key('tile-prod-id-2-qtd')).evaluate().first.widget as Text;
       expect(qtdProd2.data, equals("0"));
+      // Salvar itens selecionados no catálogo
+      await tester.tap(find.byKey(const Key('salvar-itens-selecionados')));
+      await tester.pumpAndSettle();
+      //
+      //
+      // Constata que voltamos para CapaPedidoPage considerando o(s) item(s) adicionados
+      expect(find.text('Pedido'), findsOneWidget);
+      expect(find.text('Cliente'), findsOneWidget);
+      expect(find.text('Itens do pedido'), findsOneWidget);
+      expect(find.text('Nenhum item adicionado ao pedido'), findsNothing);
+      expect(find.text('Qtd de itens: 1'), findsOneWidget);
+      expect(find.text('Valor total do pedido: R\$ 2.0'), findsOneWidget);
     });
   });
 }

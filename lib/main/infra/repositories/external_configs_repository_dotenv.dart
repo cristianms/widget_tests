@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:widget_tests/main/domain/repositories/i_external_configs_repository.dart';
 
@@ -19,12 +18,5 @@ class ExternalConfigsRepositoryDotenv implements IExternalConfigsRepository {
     // coverage:ignore-start
     return await dotenv.load();
     // coverage:ignore-end
-  }
-
-  @override
-  void printAllConfigs() {
-    if (kDebugMode) {
-      print(dotenv.env.toString());
-    }
   }
 }

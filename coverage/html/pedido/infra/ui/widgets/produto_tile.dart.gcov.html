@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">41</td>
-            <td class="headerCovTableEntry">52</td>
-            <td class="headerCovTableEntryMed">78.8 %</td>
+            <td class="headerCovTableEntry">53</td>
+            <td class="headerCovTableEntry">54</td>
+            <td class="headerCovTableEntryHi">98.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">Fri Dec  2 19:00:12 2022</td>
+            <td class="headerValue">Mon Dec  5 14:28:22 2022</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -120,70 +120,68 @@
 <a name="58"><span class="lineNum">      58 </span><span class="lineCov">          1 :                 Flexible(</span></a>
 <a name="59"><span class="lineNum">      59 </span>            :                   flex: 1,</a>
 <a name="60"><span class="lineNum">      60 </span><span class="lineCov">          1 :                   child: IconButton(</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineNoCov">          0 :                     onPressed: () {</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineNoCov">          0 :                       if (qtd &gt; 0) {</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineNoCov">          0 :                         setState(() {</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineNoCov">          0 :                           qtd--;</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineNoCov">          0 :                           dccItemPedido(widget.produto, qtd);</span></a>
-<a name="66"><span class="lineNum">      66 </span>            :                           if (kDebugMode) {</a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineNoCov">          0 :                             print(widget.listaItensCarrinho.length);</span></a>
-<a name="68"><span class="lineNum">      68 </span>            :                           }</a>
-<a name="69"><span class="lineNum">      69 </span>            :                         });</a>
-<a name="70"><span class="lineNum">      70 </span>            :                       }</a>
-<a name="71"><span class="lineNum">      71 </span>            :                     },</a>
-<a name="72"><span class="lineNum">      72 </span>            :                     icon: const Icon(Icons.remove),</a>
-<a name="73"><span class="lineNum">      73 </span>            :                   ),</a>
-<a name="74"><span class="lineNum">      74 </span>            :                 ),</a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">          1 :                 Flexible(</span></a>
-<a name="76"><span class="lineNum">      76 </span>            :                   flex: 1,</a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">          1 :                   child: IconButton(</span></a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">          5 :                     key: Key('tile-prod-${widget.produto.idProduto}-add'),</span></a>
-<a name="79"><span class="lineNum">      79 </span>            :                     icon: const Icon(Icons.add),</a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">          1 :                     onPressed: () {</span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">          2 :                       setState(() {</span></a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">          2 :                         qtd++;</span></a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineCov">          4 :                         addItemPedido(widget.produto, qtd);</span></a>
-<a name="84"><span class="lineNum">      84 </span>            :                         if (kDebugMode) {</a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">          4 :                           print(widget.listaItensCarrinho.length);</span></a>
-<a name="86"><span class="lineNum">      86 </span>            :                         }</a>
-<a name="87"><span class="lineNum">      87 </span>            :                       });</a>
-<a name="88"><span class="lineNum">      88 </span>            :                     },</a>
-<a name="89"><span class="lineNum">      89 </span>            :                   ),</a>
-<a name="90"><span class="lineNum">      90 </span>            :                 ),</a>
-<a name="91"><span class="lineNum">      91 </span>            :               ],</a>
-<a name="92"><span class="lineNum">      92 </span>            :             ),</a>
-<a name="93"><span class="lineNum">      93 </span>            :           ),</a>
-<a name="94"><span class="lineNum">      94 </span>            :         ],</a>
-<a name="95"><span class="lineNum">      95 </span>            :       ),</a>
-<a name="96"><span class="lineNum">      96 </span>            :     );</a>
-<a name="97"><span class="lineNum">      97 </span>            :   }</a>
-<a name="98"><span class="lineNum">      98 </span>            : </a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">          1 :   void addItemPedido(Produto produto, int qtd) {</span></a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">          4 :     List&lt;ItemPedido&gt; listaFiltrada = widget.listaItensCarrinho.where((itemListaCarrinho) {</span></a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">          4 :       return itemListaCarrinho.produto.idProduto == produto.idProduto;</span></a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">          1 :     }).toList();</span></a>
-<a name="103"><span class="lineNum">     103 </span>            :     // Se não encontrou o produto adiciona um novo</a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">          1 :     if (listaFiltrada.isEmpty) {</span></a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">          4 :       widget.listaItensCarrinho.add(ItemPedido(</span></a>
-<a name="106"><span class="lineNum">     106 </span>            :         // idPedido: pedidoProvider.pedido!.idPedido,</a>
-<a name="107"><span class="lineNum">     107 </span>            :         // sequencia: pedidoProvider.pedido!.itens.length + 1,</a>
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">          2 :         produto: widget.produto,</span></a>
-<a name="109"><span class="lineNum">     109 </span>            :         quantidade: qtd,</a>
-<a name="110"><span class="lineNum">     110 </span>            :       ));</a>
-<a name="111"><span class="lineNum">     111 </span>            :     } else {</a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">          2 :       listaFiltrada.first.quantidade = qtd;</span></a>
-<a name="113"><span class="lineNum">     113 </span>            :     }</a>
-<a name="114"><span class="lineNum">     114 </span>            :   }</a>
-<a name="115"><span class="lineNum">     115 </span>            : </a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineNoCov">          0 :   void dccItemPedido(Produto produto, int qtd) {</span></a>
-<a name="117"><span class="lineNum">     117 </span>            :     List&lt;ItemPedido&gt; listaFiltrada =</a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineNoCov">          0 :         widget.listaItensCarrinho.where((e) =&gt; e.idPedido == pedidoProvider.pedido!.idPedido &amp;&amp; e.produto.idProduto == produto.idProduto).toList();</span></a>
-<a name="119"><span class="lineNum">     119 </span><span class="lineNoCov">          0 :     listaFiltrada.first.quantidade = qtd;</span></a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineNoCov">          0 :     if (qtd == 0) {</span></a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineNoCov">          0 :       listaFiltrada.remove(listaFiltrada.first);</span></a>
-<a name="122"><span class="lineNum">     122 </span>            :     }</a>
-<a name="123"><span class="lineNum">     123 </span>            :   }</a>
-<a name="124"><span class="lineNum">     124 </span>            : }</a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">          5 :                     key: Key('tile-prod-${widget.produto.idProduto}-dcc'),</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">          1 :                     onPressed: () {</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">          2 :                       if (qtd &gt; 0) {</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">          2 :                         setState(() {</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">          2 :                           qtd--;</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">          4 :                           _dccItemPedido(widget.produto, qtd);</span></a>
+<a name="67"><span class="lineNum">      67 </span>            :                         });</a>
+<a name="68"><span class="lineNum">      68 </span>            :                       }</a>
+<a name="69"><span class="lineNum">      69 </span>            :                     },</a>
+<a name="70"><span class="lineNum">      70 </span>            :                     icon: const Icon(Icons.remove),</a>
+<a name="71"><span class="lineNum">      71 </span>            :                   ),</a>
+<a name="72"><span class="lineNum">      72 </span>            :                 ),</a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">          1 :                 Flexible(</span></a>
+<a name="74"><span class="lineNum">      74 </span>            :                   flex: 1,</a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">          1 :                   child: IconButton(</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">          5 :                     key: Key('tile-prod-${widget.produto.idProduto}-add'),</span></a>
+<a name="77"><span class="lineNum">      77 </span>            :                     icon: const Icon(Icons.add),</a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">          1 :                     onPressed: () {</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">          2 :                       setState(() {</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">          2 :                         qtd++;</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">          4 :                         _addItemPedido(widget.produto, qtd);</span></a>
+<a name="82"><span class="lineNum">      82 </span>            :                       });</a>
+<a name="83"><span class="lineNum">      83 </span>            :                     },</a>
+<a name="84"><span class="lineNum">      84 </span>            :                   ),</a>
+<a name="85"><span class="lineNum">      85 </span>            :                 ),</a>
+<a name="86"><span class="lineNum">      86 </span>            :               ],</a>
+<a name="87"><span class="lineNum">      87 </span>            :             ),</a>
+<a name="88"><span class="lineNum">      88 </span>            :           ),</a>
+<a name="89"><span class="lineNum">      89 </span>            :         ],</a>
+<a name="90"><span class="lineNum">      90 </span>            :       ),</a>
+<a name="91"><span class="lineNum">      91 </span>            :     );</a>
+<a name="92"><span class="lineNum">      92 </span>            :   }</a>
+<a name="93"><span class="lineNum">      93 </span>            : </a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineCov">          1 :   void _addItemPedido(Produto produto, int qtd) {</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">          4 :     List&lt;ItemPedido&gt; listaFiltrada = widget.listaItensCarrinho.where((itemListaCarrinho) {</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">          4 :       return itemListaCarrinho.produto.idProduto == produto.idProduto;</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">          1 :     }).toList();</span></a>
+<a name="98"><span class="lineNum">      98 </span>            :     // Se não encontrou o produto adiciona um novo</a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">          1 :     if (listaFiltrada.isEmpty) {</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">          4 :       widget.listaItensCarrinho.add(ItemPedido(</span></a>
+<a name="101"><span class="lineNum">     101 </span>            :         // idPedido: pedidoProvider.pedido!.idPedido,</a>
+<a name="102"><span class="lineNum">     102 </span>            :         // sequencia: pedidoProvider.pedido!.itens.length + 1,</a>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">          2 :         produto: widget.produto,</span></a>
+<a name="104"><span class="lineNum">     104 </span>            :         quantidade: qtd,</a>
+<a name="105"><span class="lineNum">     105 </span>            :       ));</a>
+<a name="106"><span class="lineNum">     106 </span>            :     } else {</a>
+<a name="107"><span class="lineNum">     107 </span><span class="lineCov">          2 :       listaFiltrada.first.quantidade = qtd;</span></a>
+<a name="108"><span class="lineNum">     108 </span>            :     }</a>
+<a name="109"><span class="lineNum">     109 </span>            :   }</a>
+<a name="110"><span class="lineNum">     110 </span>            : </a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">          1 :   void _dccItemPedido(Produto produto, int qtd) {</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">          4 :     List&lt;ItemPedido&gt; listaFiltrada = widget.listaItensCarrinho.where((itemListaCarrinho) {</span></a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">          4 :       return itemListaCarrinho.produto.idProduto == produto.idProduto;</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">          1 :     }).toList();</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">          1 :     if (listaFiltrada.isNotEmpty) {</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">          2 :       listaFiltrada.first.quantidade = qtd;</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">          1 :       if (qtd == 0) {</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineNoCov">          0 :         listaFiltrada.remove(listaFiltrada.first);</span></a>
+<a name="119"><span class="lineNum">     119 </span>            :       }</a>
+<a name="120"><span class="lineNum">     120 </span>            :     }</a>
+<a name="121"><span class="lineNum">     121 </span>            :   }</a>
+<a name="122"><span class="lineNum">     122 </span>            : }</a>
 </pre>
       </td>
     </tr>

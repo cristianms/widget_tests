@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">17</td>
-            <td class="headerCovTableEntry">18</td>
-            <td class="headerCovTableEntryHi">94.4 %</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">Fri Dec  2 19:00:12 2022</td>
+            <td class="headerValue">Mon Dec  5 14:28:22 2022</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -73,14 +73,14 @@
 <a name="11"><span class="lineNum">      11 </span>            : import 'package:widget_tests/pedido/infra/ui/widgets/lista_itens_pedido.dart';</a>
 <a name="12"><span class="lineNum">      12 </span>            : </a>
 <a name="13"><span class="lineNum">      13 </span>            : class CapaPedidoPage extends StatefulWidget {</a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">          4 :   const CapaPedidoPage({super.key});</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">          5 :   const CapaPedidoPage({super.key});</span></a>
 <a name="15"><span class="lineNum">      15 </span>            : </a>
 <a name="16"><span class="lineNum">      16 </span><span class="lineCov">          1 :   @override</span></a>
 <a name="17"><span class="lineNum">      17 </span><span class="lineCov">          1 :   State&lt;CapaPedidoPage&gt; createState() =&gt; _CapaPedidoPageState();</span></a>
 <a name="18"><span class="lineNum">      18 </span>            : }</a>
 <a name="19"><span class="lineNum">      19 </span>            : </a>
 <a name="20"><span class="lineNum">      20 </span>            : class _CapaPedidoPageState extends State&lt;CapaPedidoPage&gt; {</a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineNoCov">          0 :   late List&lt;Cliente&gt; listaClientes = [];</span></a>
+<a name="21"><span class="lineNum">      21 </span>            :   late List&lt;Cliente&gt; listaClientes;</a>
 <a name="22"><span class="lineNum">      22 </span>            :   late PedidoProvider pedidoProvider;</a>
 <a name="23"><span class="lineNum">      23 </span>            : </a>
 <a name="24"><span class="lineNum">      24 </span>            :   final pedidoRepository = Modular.get&lt;IPedidoRepository&gt;();</a>
@@ -110,17 +110,28 @@
 <a name="48"><span class="lineNum">      48 </span>            :             const Padding(padding: EdgeInsets.only(top: 8.0), child: Text('Itens do pedido', style: TextStyle(fontSize: 20))),</a>
 <a name="49"><span class="lineNum">      49 </span>            :             // Lista itens do pedido</a>
 <a name="50"><span class="lineNum">      50 </span><span class="lineCov">          2 :             ListaItensPedido(pedidoProvider: pedidoProvider),</span></a>
-<a name="51"><span class="lineNum">      51 </span>            :           ],</a>
-<a name="52"><span class="lineNum">      52 </span>            :         ),</a>
-<a name="53"><span class="lineNum">      53 </span>            :       ),</a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">          1 :       floatingActionButton: FloatingActionButton(</span></a>
-<a name="55"><span class="lineNum">      55 </span>            :         key: const Key('add-item-pedido'),</a>
-<a name="56"><span class="lineNum">      56 </span>            :         child: const Icon(Icons.add_shopping_cart),</a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">          3 :         onPressed: () =&gt; utilsFacade.push(context, const CatalogoProdutosPage()),</span></a>
-<a name="58"><span class="lineNum">      58 </span>            :       ),</a>
-<a name="59"><span class="lineNum">      59 </span>            :     );</a>
-<a name="60"><span class="lineNum">      60 </span>            :   }</a>
-<a name="61"><span class="lineNum">      61 </span>            : }</a>
+<a name="51"><span class="lineNum">      51 </span>            :             // Resumo</a>
+<a name="52"><span class="lineNum">      52 </span>            :             const Padding(padding: EdgeInsets.only(top: 8.0), child: Text('Resumo', style: TextStyle(fontSize: 20))),</a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">          1 :             Padding(</span></a>
+<a name="54"><span class="lineNum">      54 </span>            :               padding: const EdgeInsets.all(8.0),</a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">          1 :               child: Column(</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">          1 :                 children: [</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">          6 :                   Text('Qtd de itens: ${pedidoProvider.pedido!.itens.length}'),</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">          5 :                   Text('Valor total do pedido: R\$ ${pedidoProvider.pedido!.valorTotalPedido()}'),</span></a>
+<a name="59"><span class="lineNum">      59 </span>            :                 ],</a>
+<a name="60"><span class="lineNum">      60 </span>            :               ),</a>
+<a name="61"><span class="lineNum">      61 </span>            :             ),</a>
+<a name="62"><span class="lineNum">      62 </span>            :           ],</a>
+<a name="63"><span class="lineNum">      63 </span>            :         ),</a>
+<a name="64"><span class="lineNum">      64 </span>            :       ),</a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">          1 :       floatingActionButton: FloatingActionButton(</span></a>
+<a name="66"><span class="lineNum">      66 </span>            :         key: const Key('add-item-pedido'),</a>
+<a name="67"><span class="lineNum">      67 </span>            :         child: const Icon(Icons.add_shopping_cart),</a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">          3 :         onPressed: () =&gt; utilsFacade.push(context, const CatalogoProdutosPage()),</span></a>
+<a name="69"><span class="lineNum">      69 </span>            :       ),</a>
+<a name="70"><span class="lineNum">      70 </span>            :     );</a>
+<a name="71"><span class="lineNum">      71 </span>            :   }</a>
+<a name="72"><span class="lineNum">      72 </span>            : }</a>
 </pre>
       </td>
     </tr>

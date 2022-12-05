@@ -58,14 +58,12 @@ class _ProdutoTileState extends State<ProdutoTile> {
                 Flexible(
                   flex: 1,
                   child: IconButton(
+                    key: Key('tile-prod-${widget.produto.idProduto}-dcc'),
                     onPressed: () {
                       if (qtd > 0) {
                         setState(() {
                           qtd--;
-                          dccItemPedido(widget.produto, qtd);
-                          if (kDebugMode) {
-                            print(widget.listaItensCarrinho.length);
-                          }
+                          _dccItemPedido(widget.produto, qtd);
                         });
                       }
                     },
@@ -80,10 +78,7 @@ class _ProdutoTileState extends State<ProdutoTile> {
                     onPressed: () {
                       setState(() {
                         qtd++;
-                        addItemPedido(widget.produto, qtd);
-                        if (kDebugMode) {
-                          print(widget.listaItensCarrinho.length);
-                        }
+                        _addItemPedido(widget.produto, qtd);
                       });
                     },
                   ),
@@ -96,7 +91,7 @@ class _ProdutoTileState extends State<ProdutoTile> {
     );
   }
 
-  void addItemPedido(Produto produto, int qtd) {
+  void _addItemPedido(Produto produto, int qtd) {
     List<ItemPedido> listaFiltrada = widget.listaItensCarrinho.where((itemListaCarrinho) {
       return itemListaCarrinho.produto.idProduto == produto.idProduto;
     }).toList();
@@ -113,12 +108,15 @@ class _ProdutoTileState extends State<ProdutoTile> {
     }
   }
 
-  void dccItemPedido(Produto produto, int qtd) {
-    List<ItemPedido> listaFiltrada =
-        widget.listaItensCarrinho.where((e) => e.idPedido == pedidoProvider.pedido!.idPedido && e.produto.idProduto == produto.idProduto).toList();
-    listaFiltrada.first.quantidade = qtd;
-    if (qtd == 0) {
-      listaFiltrada.remove(listaFiltrada.first);
+  void _dccItemPedido(Produto produto, int qtd) {
+    List<ItemPedido> listaFiltrada = widget.listaItensCarrinho.where((itemListaCarrinho) {
+      return itemListaCarrinho.produto.idProduto == produto.idProduto;
+    }).toList();
+    if (listaFiltrada.isNotEmpty) {
+      listaFiltrada.first.quantidade = qtd;
+      if (qtd == 0) {
+        listaFiltrada.remove(listaFiltrada.first);
+      }
     }
   }
 }

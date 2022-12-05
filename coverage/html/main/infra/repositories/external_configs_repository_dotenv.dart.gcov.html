@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">4</td>
-            <td class="headerCovTableEntry">6</td>
-            <td class="headerCovTableEntryLo">66.7 %</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">Fri Dec  2 19:00:12 2022</td>
+            <td class="headerValue">Mon Dec  5 14:28:22 2022</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -62,34 +62,26 @@
 <pre class="source">
 <a name="1"><span class="lineNum">       1 </span>            : import 'dart:io';</a>
 <a name="2"><span class="lineNum">       2 </span>            : </a>
-<a name="3"><span class="lineNum">       3 </span>            : import 'package:flutter/foundation.dart';</a>
-<a name="4"><span class="lineNum">       4 </span>            : import 'package:flutter_dotenv/flutter_dotenv.dart';</a>
-<a name="5"><span class="lineNum">       5 </span>            : import 'package:widget_tests/main/domain/repositories/i_external_configs_repository.dart';</a>
-<a name="6"><span class="lineNum">       6 </span>            : </a>
-<a name="7"><span class="lineNum">       7 </span>            : class ExternalConfigsRepositoryDotenv implements IExternalConfigsRepository {</a>
-<a name="8"><span class="lineNum">       8 </span>            :   final String? pathDotEnv;</a>
-<a name="9"><span class="lineNum">       9 </span>            : </a>
-<a name="10"><span class="lineNum">      10 </span>            :   /// Construtor</a>
-<a name="11"><span class="lineNum">      11 </span><span class="lineCov">          1 :   ExternalConfigsRepositoryDotenv({this.pathDotEnv});</span></a>
-<a name="12"><span class="lineNum">      12 </span>            : </a>
-<a name="13"><span class="lineNum">      13 </span><span class="lineCov">          1 :   @override</span></a>
-<a name="14"><span class="lineNum">      14 </span>            :   Future&lt;void&gt; initialize() async {</a>
-<a name="15"><span class="lineNum">      15 </span>            :     // await Future.delayed(const Duration(seconds: 1));</a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">          3 :     if (pathDotEnv != null &amp;&amp; pathDotEnv!.isNotEmpty) {</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          5 :       return dotenv.testLoad(fileInput: File(pathDotEnv!).readAsStringSync());</span></a>
-<a name="18"><span class="lineNum">      18 </span>            :     }</a>
-<a name="19"><span class="lineNum">      19 </span>            :     // coverage:ignore-start</a>
-<a name="20"><span class="lineNum">      20 </span>            :     return await dotenv.load();</a>
-<a name="21"><span class="lineNum">      21 </span>            :     // coverage:ignore-end</a>
-<a name="22"><span class="lineNum">      22 </span>            :   }</a>
-<a name="23"><span class="lineNum">      23 </span>            : </a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineNoCov">          0 :   @override</span></a>
-<a name="25"><span class="lineNum">      25 </span>            :   void printAllConfigs() {</a>
-<a name="26"><span class="lineNum">      26 </span>            :     if (kDebugMode) {</a>
-<a name="27"><span class="lineNum">      27 </span><span class="lineNoCov">          0 :       print(dotenv.env.toString());</span></a>
-<a name="28"><span class="lineNum">      28 </span>            :     }</a>
-<a name="29"><span class="lineNum">      29 </span>            :   }</a>
-<a name="30"><span class="lineNum">      30 </span>            : }</a>
+<a name="3"><span class="lineNum">       3 </span>            : import 'package:flutter_dotenv/flutter_dotenv.dart';</a>
+<a name="4"><span class="lineNum">       4 </span>            : import 'package:widget_tests/main/domain/repositories/i_external_configs_repository.dart';</a>
+<a name="5"><span class="lineNum">       5 </span>            : </a>
+<a name="6"><span class="lineNum">       6 </span>            : class ExternalConfigsRepositoryDotenv implements IExternalConfigsRepository {</a>
+<a name="7"><span class="lineNum">       7 </span>            :   final String? pathDotEnv;</a>
+<a name="8"><span class="lineNum">       8 </span>            : </a>
+<a name="9"><span class="lineNum">       9 </span>            :   /// Construtor</a>
+<a name="10"><span class="lineNum">      10 </span><span class="lineCov">          1 :   ExternalConfigsRepositoryDotenv({this.pathDotEnv});</span></a>
+<a name="11"><span class="lineNum">      11 </span>            : </a>
+<a name="12"><span class="lineNum">      12 </span><span class="lineCov">          1 :   @override</span></a>
+<a name="13"><span class="lineNum">      13 </span>            :   Future&lt;void&gt; initialize() async {</a>
+<a name="14"><span class="lineNum">      14 </span>            :     // await Future.delayed(const Duration(seconds: 1));</a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">          3 :     if (pathDotEnv != null &amp;&amp; pathDotEnv!.isNotEmpty) {</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">          5 :       return dotenv.testLoad(fileInput: File(pathDotEnv!).readAsStringSync());</span></a>
+<a name="17"><span class="lineNum">      17 </span>            :     }</a>
+<a name="18"><span class="lineNum">      18 </span>            :     // coverage:ignore-start</a>
+<a name="19"><span class="lineNum">      19 </span>            :     return await dotenv.load();</a>
+<a name="20"><span class="lineNum">      20 </span>            :     // coverage:ignore-end</a>
+<a name="21"><span class="lineNum">      21 </span>            :   }</a>
+<a name="22"><span class="lineNum">      22 </span>            : }</a>
 </pre>
       </td>
     </tr>

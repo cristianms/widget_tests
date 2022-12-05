@@ -56,9 +56,14 @@ class Pedido {
   }
 
   @override
-  int get hashCode => idPedido.hashCode ^ cliente.hashCode ^ itens.hashCode;
+  int get hashCode =>
+      idPedido.hashCode ^ cliente.hashCode ^ itens.fold(0, (previousValue, element) => previousValue.hashCode + element.hashCode).hashCode;
 
   void addItemPedido(ItemPedido itemPedido) {
     itens.add(itemPedido);
+  }
+
+  num valorTotalPedido() {
+    return itens.map((item) => item.quantidade * item.produto.preco).fold(0, (previousValue, element) => previousValue + element);
   }
 }

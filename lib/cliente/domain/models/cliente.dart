@@ -57,11 +57,7 @@ class Cliente {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Cliente &&
-        other.idCliente == idCliente &&
-        other.razaoSocial == razaoSocial &&
-        other.fantasia == fantasia &&
-        other.documento == documento;
+    return other is Cliente && other.idCliente == idCliente && other.razaoSocial == razaoSocial && other.fantasia == fantasia && other.documento == documento;
   }
 
   @override

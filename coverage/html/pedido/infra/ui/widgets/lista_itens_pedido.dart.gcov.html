@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">7</td>
             <td class="headerCovTableEntry">12</td>
-            <td class="headerCovTableEntryLo">58.3 %</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">Fri Dec  2 19:00:12 2022</td>
+            <td class="headerValue">Mon Dec  5 14:28:22 2022</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -77,12 +77,12 @@
 <a name="15"><span class="lineNum">      15 </span><span class="lineCov">          1 :       child: ListView(</span></a>
 <a name="16"><span class="lineNum">      16 </span><span class="lineCov">          4 :         children: pedidoProvider.pedido!.itens.isEmpty</span></a>
 <a name="17"><span class="lineNum">      17 </span><span class="lineCov">          1 :             ? [const Center(child: Text('Nenhum item adicionado ao pedido'))]</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineNoCov">          0 :             : pedidoProvider.pedido!.itens</span></a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineNoCov">          0 :                 .map((e) =&gt; ListTile(</span></a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineNoCov">          0 :                       title: Text('${e.produto.descricao} | Qtd: ${e.quantidade.toString()}'),</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineNoCov">          0 :                       subtitle: Text('Total item: ${e.quantidade * e.produto.preco}'),</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">          3 :             : pedidoProvider.pedido!.itens</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">          3 :                 .map((e) =&gt; ListTile(</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">          6 :                       title: Text('${e.produto.descricao} | Qtd: ${e.quantidade.toString()}'),</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">          6 :                       subtitle: Text('Total item: ${e.quantidade * e.produto.preco}'),</span></a>
 <a name="22"><span class="lineNum">      22 </span>            :                     ))</a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineNoCov">          0 :                 .toList(),</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">          1 :                 .toList(),</span></a>
 <a name="24"><span class="lineNum">      24 </span>            :       ),</a>
 <a name="25"><span class="lineNum">      25 </span>            :     );</a>
 <a name="26"><span class="lineNum">      26 </span>            :   }</a>
