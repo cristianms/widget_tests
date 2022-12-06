@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
 
   late PedidoProvider pedidoProvider = Provider.of<PedidoProvider>(context, listen: false);
 
+  // TODO(Cristian): Teste 456
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +38,9 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             key: const Key('home-options'),
             icon: const Icon(Icons.info),
+            // TODO(Cristian): Teste 123456
             onPressed: () {},
-          )
+          ),
         ],
       ),
       body: FutureBuilder(

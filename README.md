@@ -1,6 +1,6 @@
 # WIDGET TESTS
 
-Projeto Flutter destinado a aplicação de testes de Widgets.
+Projeto Flutter destinado a aplicação de testes de Widgets e aplicação de Dart Code Metrics.
 
 ## Getting Started
 
