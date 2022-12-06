@@ -27,6 +27,7 @@ class _ProdutoTileState extends State<ProdutoTile> {
   int qtd = 0;
   @override
   Widget build(BuildContext context) {
+    final idProduto = widget.produto.idProduto;
     return Card(
       child: Row(
         children: [
@@ -44,7 +45,7 @@ class _ProdutoTileState extends State<ProdutoTile> {
                 const Text('Qtd'),
                 Text(
                   '$qtd',
-                  key: Key('tile-prod-id-${widget.produto.idProduto.toString()}-qtd'),
+                  key: Key('tile-prod-id-${idProduto.toString()}-qtd'),
                   style: const TextStyle(fontSize: 18),
                 ),
               ],
@@ -57,7 +58,7 @@ class _ProdutoTileState extends State<ProdutoTile> {
                 Flexible(
                   flex: 1,
                   child: IconButton(
-                    key: Key('tile-prod-${widget.produto.idProduto}-dcc'),
+                    key: Key('tile-prod-$idProduto-dcc'),
                     onPressed: () {
                       if (qtd > 0) {
                         setState(() {
@@ -72,7 +73,7 @@ class _ProdutoTileState extends State<ProdutoTile> {
                 Flexible(
                   flex: 1,
                   child: IconButton(
-                    key: Key('tile-prod-${widget.produto.idProduto}-add'),
+                    key: Key('tile-prod-$idProduto-add'),
                     icon: const Icon(Icons.add),
                     onPressed: () {
                       setState(() {

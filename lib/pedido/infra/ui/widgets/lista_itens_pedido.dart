@@ -11,11 +11,12 @@ class ListaItensPedido extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final itens = pedidoProvider.pedido!.itens;
     return Expanded(
       child: ListView(
-        children: pedidoProvider.pedido!.itens.isEmpty
+        children: itens.isEmpty
             ? [const Center(child: Text('Nenhum item adicionado ao pedido'))]
-            : pedidoProvider.pedido!.itens
+            : itens
                 .map((e) => ListTile(
                       title: Text('${e.produto.descricao} | Qtd: ${e.quantidade.toString()}'),
                       subtitle: Text('Total item: ${e.quantidade * e.produto.preco}'),

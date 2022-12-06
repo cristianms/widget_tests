@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:widget_tests/main/infra/ui/widgets/wrap_material.dart';
-import 'package:widget_tests/main_injection.dart';
+import 'package:widget_tests/main_appmodule_injection.dart';
 
 // coverage:ignore-start
 void main() async {
@@ -21,7 +21,7 @@ void main() async {
   // Envolve o app em um ModularApp para ter acesso a injeção de dependências
   runApp(
     ModularApp(
-      module: AppModule(), // Carregamento das injeções
+      module: MainAppModuleInjection(), // Carregamento das injeções
       child: const WrapMaterial(), // Widget da aplicação
     ),
   );

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,6 @@ class _HomePageState extends State<HomePage> {
 
   late PedidoProvider pedidoProvider = Provider.of<PedidoProvider>(context, listen: false);
 
-  // TODO(Cristian): Teste 456
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,8 +38,11 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             key: const Key('home-options'),
             icon: const Icon(Icons.info),
-            // TODO(Cristian): Teste 123456
-            onPressed: () {},
+            onPressed: () {
+              if (kDebugMode) {
+                print('...');
+              }
+            },
           ),
         ],
       ),
@@ -68,7 +71,11 @@ class _HomePageState extends State<HomePage> {
                   Botao(
                     key: const Key('home-botao-3'),
                     titulo: 'Teste 3',
-                    onClick: () {},
+                    onClick: () {
+                      if (kDebugMode) {
+                        print('...');
+                      }
+                    },
                   ),
                 ],
               ),
